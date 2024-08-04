@@ -9,8 +9,8 @@ Original file is located at
 
 import pandas as pd
 import numpy as np
-mov_df = pd.read_csv('e:\\regan data\\Internship Details\\Backup for CodSoft\\Task 3\\tmdb_5000_movies.csv')
-cred_df = pd.read_csv('e:\\regan data\\Internship Details\\Backup for CodSoft\\Task 3\\tmdb_5000_credits.csv')
+mov_df = pd.read_csv('tmdb_5000_movies.csv')
+cred_df = pd.read_csv('tmdb_5000_credits.csv')
 
 mov_df_2 = mov_df.rename(index=str, columns={"id": "movie_id"})
 mov_cred_df = mov_df_2.merge(cred_df, on='movie_id')
