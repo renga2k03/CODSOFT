@@ -39,10 +39,10 @@ def typeofSentence(sent):
     scores[0] = sum([0.5 for words in greetingwords if words in sent])
     scores[4] = sum([0.75 for words in sentwords if words in computationalwords])
     if sentwords[0] in verbs or sentwords[0] in imperativewords:
-        scores[3] += 1
+        scores[3] += 1.25
     if sentwords[0] in interrogativewords:
         scores[2] += 0.5
-    print("Scores on the types of queries : ", scores)
+    #print("Scores on the types of queries : ", scores)
     maxscore = max(scores)
     ind = scores.index(maxscore)
     return types[ind]
@@ -72,7 +72,7 @@ def interrogative(sent):
         if sentwords[0] == "who":
             if "are" in sentwords:
                 resp = "I am Chatbot AI that is programmed to respond to simple queries given by user. "
-            elif "designed" in sentwords:
+            elif "designed" in sentwords or "made" in sentwords:
                 resp = "I am designed by Renganathan M to handle simple queries and respond to the user appropriately. "
         else:
             if "designed" in sentwords and sentwords[0] == "how":
@@ -168,7 +168,7 @@ def computational(sent):
         i += 1
     return "The answer is " + str(stack[0])
 
-print("Welcome! This is the Chatbot AI. You can interact with the bot and get desired responses\nIf you want to end the conversation, enter \'Exit\'\n")
+print("\nWelcome! This is a Chatbot AI. You can interact with the bot and get desired responses\nIf you want to end the conversation, enter \'Exit\'\n")
 while True:
     inp = input("User : ")
     if inp == "Exit" or inp == "exit":
@@ -181,7 +181,7 @@ while True:
     for sentence in text:
         if len(sentence) > 1:
             tos = typeofSentence(sentence)
-            print("Type of query is : ", tos)
+            #print("Type of query is : ", tos)
             if tos == "Greetings":
                 response += greetings(sentence)
             elif tos == "Declarative":
