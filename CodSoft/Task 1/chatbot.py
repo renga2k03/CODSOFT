@@ -30,7 +30,7 @@ def typeofSentence(sent):
     interrogativewords = ["how","what","where","why","when","which","who"]
     imperativewords = ["do","let","please","perform"]
     computationalwords = ["solve","compute","find","+","-","*","/"]
-    verbs_dataset = pd.read_csv('E:\\regan data\\Internship Details\\CodSoft\\Task 1\\verbs.csv')
+    verbs_dataset = pd.read_csv('verbs.csv')
     verbs = list(verbs_dataset[verbs_dataset.columns[0]].values)
     if sent[-1] == '?':
         scores[2] += 1
@@ -51,7 +51,7 @@ def greetings(sent):
             "Hi, good " + period + " ", "Hey, good " + period + " ", "Hello, good " + period + " "]
     return random.choice(resp)
 def declarative(sent):
-    sentiment_dataset = pd.read_csv('E:\\regan data\\Internship Details\\CodSoft\\Task 1\\Positive and Negative Word List.csv')
+    sentiment_dataset = pd.read_csv('Positive and Negative Word List.csv')
     neg_words = list(sentiment_dataset[sentiment_dataset.columns[1]].values)
     pos_words = list(sentiment_dataset[sentiment_dataset.columns[2]].values)
     neg_response = ["Oh, that's concerning. ", "Unfortunate! ", "Uh oh! ", "Oh! ", "That\'s bad! ", "Damn!! ", "Hmm "]
